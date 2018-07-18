@@ -8,9 +8,7 @@ import LogoStyles from '../../styles/logo.css';
 class Registry extends Component {
   render() {
     return (
-      <MainLayout>
-        <p>Hola caracola</p>
-      </MainLayout>
+      <p>Hola caracola</p>
     );
   }
 }

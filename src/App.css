@@ -17,3 +17,13 @@
   /* Breakpoint */
   --desktop: 1024px;
 }
+
+.Header {
+  text-align: center;
+  padding: 5rem 0;
+}
+
+.Logo {
+  font-size: 3rem;
+  color: var(--white);
+}
