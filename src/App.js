@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
-import Registry from './pages/registry/Registry';
 import { Switch, Route } from 'react-router-dom';
+import Registry from './pages/registry/Registry';
+import Raffle from './pages/raffle/Raffle';
 
 import AppStyles from './App.css';
 
@@ -13,6 +14,7 @@ class App extends Component {
         </header>
         <Switch>
             <Route exact path="/" component={Registry} />
+            <Route exact path="/raffle/:id" component={Raffle} />
         </Switch>
       </Fragment>
     );

@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 
 import Welcome from '../../components/welcome/Welcome'
-import RaffleForm from '../../components/raffleForm/RaffleForm'
 
-class Registry extends Component {
+class Raffle extends Component {
   render() {
     return (
       <main>
         <Welcome event="JSdayES 2019">
-          Bienvenido a
+        Comienza la cuenta atrás de la rifa (ID rifa) de los <br/> de
         </Welcome>
-        <RaffleForm />
       </main>
     );
   }
 }
 
-export default Registry;
+export default Raffle;
