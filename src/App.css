@@ -1,4 +1,6 @@
+
 :root {
+  /* Color variables */
   --black: #171717;
   --gray900: #4E606D;
   --gray500: #93A2AD;
@@ -11,4 +13,7 @@
   --blue900: #055175;
   --blue500: #BBCBD3;
   --blue100: #6DC7DA;
+
+  /* Breakpoint */
+  --desktop: 1024px;
 }
