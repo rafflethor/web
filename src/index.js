@@ -1,8 +1,62 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import './index.css';
+// import App from './App';
+// import registerServiceWorker from './registerServiceWorker';
+//
+// ReactDOM.render(<App />, document.getElementById('root'));
+// registerServiceWorker();
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { ConnectedRouter, routerMiddleware as createRouterMiddleware } from 'react-router-redux'
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import registerServiceWorker from './registerServiceWorker'
+import createSagaMiddleware from 'redux-saga'
+import createHistory from 'history/createBrowserHistory'
+import App from './App'
+import rootSaga from './sagas'
+import rootReducer from './reducers'
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+import './index.css'
+
+/**
+ * Sagas middleware
+ */
+const sagaMiddleware = createSagaMiddleware()
+
+/**
+ * Router middleware
+ */
+const history = createHistory()
+const routerMiddleware = createRouterMiddleware(history)
+
+/**
+ * Create store
+ */
+const store = createStore(
+    rootReducer,
+    applyMiddleware(sagaMiddleware, routerMiddleware)
+)
+
+/**
+ * Init sagas BEFORE! rendering app
+ */
+sagaMiddleware.run(rootSaga)
+
+/**
+ * Bootstrap app
+ */
+ReactDOM.render(
+    <Provider store={store}>
+        <ConnectedRouter history={history}>
+            <App />
+        </ConnectedRouter>
+    </Provider>,
+    document.getElementById('root')
+)
+
+/**
+ * For development purposes
+ */
+registerServiceWorker()
