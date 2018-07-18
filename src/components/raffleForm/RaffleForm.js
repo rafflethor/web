@@ -12,12 +12,13 @@ class RaffleForm extends Component {
   render() {
     return (
       <form className={raffleFormStyles.Form} onSubmit={this.onSubmit}>
-        <label htmlFor="raffleId">ID de la rifa</label>
-        <input id="raffleId" type="text" required />
+        <label htmlFor="raffleId" className={raffleFormStyles.Label}>ID de la rifa</label>
+        <input id="raffleId" type="text" placeholder="ID de la rifa" required />
         {/* If requires an email */}
-        <input id="raffleMail" type="email" required />
+        <label htmlFor="raffleMail" className={raffleFormStyles.Label}>Dirección de correo</label>
+        <input id="raffleMail" type="email" placeholder="Email"  required />
         {/* /If requires an email */}
-        <input type="submit" value="¡Participar!" />
+        <input type="submit" value="¡Participar!" className={raffleFormStyles.Submit} />
       </form>
     );
   }

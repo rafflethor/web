@@ -1,5 +1,32 @@
 /* Page Registry styles */
 
 .Form {
-    background: var(--red900);
+    width: 250px;
+    margin: 2rem auto 0;
 }
+
+.Form > input {
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.Form > input:not([type="submit"]) {
+    margin-bottom: 1rem;
+}
+
+.Submit {
+    composes: Button from "../../styles/button.css";
+    background: var(--red500);
+    transition: background .3s linear;
+}
+
+.Submit:hover {
+    background: var(--red100);
+}
+
+.Label {
+    color: var(--white);
+    padding: 0.25rem;
+    padding-left: 0;
+    display: block;
+} 

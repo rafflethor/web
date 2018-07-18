@@ -1,0 +1,13 @@
+.Button {
+    all: initial;
+    background: var(--black);
+    box-shadow: 2px 2px 5px var(--black);
+    box-sizing: border-box;
+    color: var(--white);
+    cursor: pointer;
+    display: block;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    text-align: center;
+    width: 100%;
+}
