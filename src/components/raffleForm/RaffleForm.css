@@ -1,0 +1,16 @@
+/* Page Registry styles */
+
+.common {
+    text-align: center;
+    color: var(--white);
+}
+
+.Intro {
+    composes: common;
+}
+
+.Event {
+    composes: common;
+    font-size: var(--title);
+    margin: 0;
+}
