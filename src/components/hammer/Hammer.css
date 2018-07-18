@@ -1,0 +1,13 @@
+.HammerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+.CountDown {
+    font-size: 7rem;
+    color: var(--white);
+    font-weight: 800;
+    text-align: center;
+}
