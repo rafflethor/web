@@ -1,5 +1,6 @@
 
 import axios from 'axios'
+import storage from '../storage'
 import { fromJS } from 'immutable'
 
 import registration from './registration'

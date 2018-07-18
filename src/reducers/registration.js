@@ -1,4 +1,5 @@
 import { Map } from 'immutable'
+import { push } from 'react-router-redux'
 
 /**
  * Possible types of action
@@ -20,6 +21,8 @@ export const actionTypes = {
 export const initialState = Map({
     isLoading: false,
     error: null,
+    missingEmail: false,
+    invalidId: false,
     raffle: Map()
 })
 
@@ -44,11 +47,13 @@ const registrationReducers = (state = initialState, action) => {
             return state
                 .set('isLoading', false)
                 .set('invalidId', true)
+                .set('missingEmail', false)
                 .set('error', action.error)
 
         case actionTypes.REGISTRATION.FAILURE.EMAIL:
             return state
                 .set('isLoading', false)
+                .set('invalidId', false)
                 .set('missingEmail', true)
                 .set('error', action.error)
 
@@ -59,12 +64,10 @@ const registrationReducers = (state = initialState, action) => {
 
 export const actionCreators = {
     registerUser: (credentials) => {
-        console.log('====================> sending registration credentials to server')
-        return { type: 'UNKNOWN' }
-        //return { type: actionTypes.REGISTRATION.REQUEST, credentials }
+        return { type: actionTypes.REGISTRATION.REQUEST, credentials }
     },
-    registerUserSuccess: (raffleInfo) => {
-        return { type: actionTypes.REGISTRATION.SUCCESS, raffleInfo }
+    registerUserSuccess: (raffleId, hash) => {
+        return push(`/raffle/${raffleId}/${hash}`)
     },
     registerBadRaffleId: () => {
         return { type: actionTypes.REGISTRATION.FAILURE.RAFFLE_ID }
@@ -74,12 +77,6 @@ export const actionCreators = {
     },
     registerFailure: (error) => {
         return { type: actionTypes.REGISTRATION.FAILURE.GENERAL, error }
-    }
-}
-
-export const selectors = {
-    getEvents: (state) => {
-        return state.registration.getIn(['registration'])
     }
 }
 
