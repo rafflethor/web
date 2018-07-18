@@ -1,0 +1,10 @@
+.Container {
+    text-align: center;
+    color: var(--white);
+    margin-top: 4rem;
+}
+
+.Message {
+    font-size: var(--title);
+    font-weight: 800;
+}

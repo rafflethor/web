@@ -1,0 +1,13 @@
+
+.Main {
+    margin: 0 auto;
+    width: 85vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.Button {
+    composes: Button from "../../styles/button.css";
+    background: var(--red500);
+    transition: background .3s linear;
+}
