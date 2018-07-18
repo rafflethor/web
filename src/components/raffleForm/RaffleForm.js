@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-/* import raffleFormStyles from './RaffleForm.css'; */
+import raffleFormStyles from './RaffleForm.css';
 
 class RaffleForm extends Component {
   
@@ -11,10 +11,13 @@ class RaffleForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
+      <form className={raffleFormStyles.Form} onSubmit={this.onSubmit}>
         <label htmlFor="raffleId">ID de la rifa</label>
         <input id="raffleId" type="text" required />
-        <input type="submit" />
+        {/* If requires an email */}
+        <input id="raffleMail" type="email" required />
+        {/* /If requires an email */}
+        <input type="submit" value="¡Participar!" />
       </form>
     );
   }
