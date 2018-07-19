@@ -7,7 +7,7 @@ class Registry extends Component {
   render() {
     return (
       <main>
-        <Welcome event="JSdayES 2019">
+        <Welcome event="Piweek 2018">
           Bienvenido a
         </Welcome>
         <RaffleForm />

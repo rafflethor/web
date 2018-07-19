@@ -1,7 +1,5 @@
-import { parseError } from './utils'
-
 export default (client) => ({
-    save (spot, email) {
+    register (spot, email) {
         const query = `
           mutation Register($spot: String!, $email: String) {
             eventRegistry(spotId: $spot, email: $email) {
@@ -22,6 +20,6 @@ export default (client) => ({
         return client
             .post('', data)
             .then(resp => resp.data.getIn(['data', 'eventRegistry']))
-            .catch(parseError)
+            .catch(err => console.log(err))
     }
 })

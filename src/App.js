@@ -17,8 +17,8 @@ class App extends Component {
         </header>
         <Switch>
             <Route exact path="/" component={Registry} />
-            <Route exact path="/raffle/:id" component={Raffle} />
-            <Route exact path="/result/:id" component={Result} />
+            <Route exact path="/raffle/:id/:hash" component={Raffle} />
+            <Route exact path="/result/:id/:hash" component={Result} />
         </Switch>
       </Fragment>
     );
