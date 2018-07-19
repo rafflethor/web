@@ -1,0 +1,35 @@
+[{
+        "gender": "female",
+        "name": {
+            "first": "virginia",
+            "last": "gimenez"
+        },
+        "email": "virginia.gimenez@example.com",
+        "twitter": {
+            "handle": "@heavywolf972"
+        },
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/women/20.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/women/20.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/20.jpg"
+        },
+        "nat": "ES"
+    },
+    {
+        "gender": "male",
+        "name": {
+            "first": "ricardo",
+            "last": "ramos"
+        },
+        "email": "ricardo.ramos@example.com",
+        "twitter": {
+            "handle": "@organicbutterfly641"
+        },
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/men/68.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/men/68.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/men/68.jpg"
+        },
+        "nat": "ES"
+    }
+]

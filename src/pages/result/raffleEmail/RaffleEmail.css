@@ -2,9 +2,20 @@
     text-align: center;
     color: var(--white);
     margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .Message {
     font-size: var(--title);
     font-weight: 800;
+}
+
+.Hash {
+    margin-top: auto;
+}
+
+.Hash > strong {
+    word-wrap: break-word;
 }

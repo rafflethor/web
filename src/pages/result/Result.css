@@ -4,10 +4,12 @@
     width: 85vw;
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
 .Button {
     composes: Button from "../../styles/button.css";
     background: var(--red500);
     transition: background .3s linear;
+    margin-bottom: 5vh;
 }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import RaffleEmailStyles from './RaffleEmail.css';
 
 class RaffleEmail extends Component {
@@ -11,8 +11,12 @@ class RaffleEmail extends Component {
         <div className={RaffleEmailStyles.Message}>
           {luck === 'lucky' ? '¡has ganado!' : 'Oh... no ha habido suerte'}
         </div>
-        <p>Odín estaba de tu parte :)</p>
-        <p>Recoge tu premio dando este hash</p>
+        {luck === 'lucky' &&
+          <Fragment>
+            <p>Odín estaba de tu parte :)</p>
+            <p className={RaffleEmailStyles.Hash}> Recoge tu premio dando este hash <strong> {this.props.hash} </strong></p>
+          </Fragment>
+        }
       </div>
     );
   }
