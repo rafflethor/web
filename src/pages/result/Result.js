@@ -6,7 +6,9 @@ import RaffleTwitter from './raffleTwitter/RaffleTwitter';
 
 import ResultStyles from './Result.css'
 
-import fetchResult from './result.json'
+/* Fetch examples */
+import fetchSingleWinnersResult from './resultSingleWinner.json'
+import fetchMultipleWinnersResult from './resultMultipleWinners.json'
 
 class Result extends Component {
 
@@ -17,18 +19,18 @@ class Result extends Component {
     const raffleType = 'twitter'; /* email or twitter */
 
     /* CASE EMAIL */
-    const hash = 'ojiajuyfe9823ilo8nfew9j8wnhlafjlyafd978joqe'; /* optional */
+    const hash = 'ojiajuyfe9823ilo8nfew9j8wnhlafjlyafd978joqe'; /* if hash */
     const status = 'lucky'; /* lucky or unlucky */
 
     /* CASE TWITTER */
-    const twitterLuckies = fetchResult;
+    const luckyList = fetchMultipleWinnersResult; /* JSON examples => fetchSingleWinnersResult or fetchMultipleWinnersResult */
 
     let raffle;
 
     if (raffleType === 'email') {
       raffle = <RaffleEmail status={status} hash={hash} />;
     } else {
-      raffle = <RaffleTwitter luckyList={twitterLuckies} />;
+      raffle = <RaffleTwitter luckyList={luckyList} />;
     }
 
     return (

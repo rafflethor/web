@@ -1,0 +1,19 @@
+[{
+        "gender": "female",
+        "uuid": "7d045a4c-2fd1-4153-b3c4-841e8dc134ae",
+        "name": {
+            "first": "Gema",
+            "last": "Gimenez"
+        },
+        "email": "gema.jimenez@example.com",
+        "twitter": {
+            "handle": "@crazyfish392"
+        },
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/women/87.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/women/87.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/87.jpg"
+            },
+        "nat": "ES"
+    }
+]

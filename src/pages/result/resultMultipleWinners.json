@@ -1,0 +1,73 @@
+[{
+        "gender": "female",
+        "uuid": "0965bb07-776e-41ae-96a7-66509ecf9a46",
+        "name": {
+            "first": "Virginia",
+            "last": "Gimenez"
+        },
+        "email": "virginia.gimenez@example.com",
+        "twitter": {
+            "handle": "@heavywolf972"
+        },
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/women/20.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/women/20.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/20.jpg"
+        },
+        "nat": "ES"
+    },
+    {
+        "gender": "male",
+        "uuid": "67b3777f-2de7-4f9c-af14-4537efe61971",
+        "name": {
+            "first": "Ricardo",
+            "last": "Ramos"
+        },
+        "email": "ricardo.ramos@example.com",
+        "twitter": {
+            "handle": "@organicbutterfly641"
+        },
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/men/68.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/men/68.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/men/68.jpg"
+        },
+        "nat": "ES"
+    },
+    {
+        "gender": "male",
+        "uuid": "e980b8d5-0476-4ac4-a75c-53ff91f1db41",
+        "name": {
+            "first": "Rodrigo",
+            "last": "Muñoz"
+        },
+        "email": "rodrigo.muñoz@example.com",
+        "twitter": {
+            "handle": "@greenrabbit381"
+        },
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/men/98.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/men/98.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/men/98.jpg"
+        },
+        "nat": "ES"
+    },
+    {
+        "gender": "female",
+        "uuid": "e1ce2c53-593c-4fbe-8150-27c8a0659972",
+        "name": {
+            "first": "Teresa",
+            "last": "Calvo"
+        },
+        "email": "teresa.calvo@example.com",
+        "twitter": {
+            "handle": "@beautifuldog515"
+        },
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/women/62.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/women/62.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/62.jpg"
+        },
+        "nat": "ES"
+    }
+]

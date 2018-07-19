@@ -1,1 +1,18 @@
-/* Page Registry styles */
+.OrderedList {
+    color: var(--white);
+    list-style: decimal;
+    flex: 1;
+    margin-top: 2rem;
+    padding: 0;
+}
+
+.ListItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.Image {
+    margin: 0 1rem;
+    border-radius: 50%;
+}
