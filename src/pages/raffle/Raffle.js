@@ -45,6 +45,16 @@ class Raffle extends Component {
         this.props.disconnectFromRaffle();
     }
 
+    shouldComponentUpdate (nextProps, nextState) {
+        if (nextProps.finished) {
+            const raffleId = this.getRaffleId();
+            const userHash = this.getUserHash();
+
+            this.props.showRaffleResult(raffleId, userHash)
+        }
+        return !nextProps.finished
+    }
+
     render() {
         return (
             <main>
@@ -66,7 +76,8 @@ const mapStateToProps = (state) => {
         eventName: state.raffle.get('eventName'),
         raffleName: state.raffle.get('raffleName'),
         countdown: state.raffle.get('countdown'),
-        result: state.raffle.get('result')
+        result: state.raffle.get('result'),
+        finished: state.raffle.get('finished')
     };
 };
 

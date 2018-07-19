@@ -7,7 +7,9 @@ import { sseActionTypes } from '../client/sse'
 export const actionTypes = {
     RAFFLE: {
         INFO: '@rafflethor/RAFFLE/INFO',
-        COUNTDOWN: '@rafflethor/RAFFLE/COUNTDOWN'
+        COUNTDOWN: '@rafflethor/RAFFLE/COUNTDOWN',
+        FINISHED: '@rafflethor/RAFFLE/FINISHED',
+        SHOW_RESULT: '@rafflethor/RAFFLE/SHOW_RESULT'
     }
 }
 
@@ -35,6 +37,11 @@ const raffleReducers = (state = initialState, action) => {
                 .set('isLoading', false)
                 .set('countdown', action.countdown)
 
+        case actionTypes.RAFFLE.FINISHED:
+            return state
+                .set('isLoading', false)
+                .set('finished', true)
+
         default:
             return state
     }
@@ -45,6 +52,12 @@ export const actionCreators = {
         const url = `http://localhost:5050/raffle/${raffleId}/${hash}`
 
         return { type: sseActionTypes.CONNECTION.OPEN.REQUEST, url }
+    },
+    showFinished: () => {
+        return { type: actionTypes.RAFFLE.FINISHED }
+    },
+    showRaffleResult: (raffleId, hash) => {
+        return { type: actionTypes.RAFFLE.SHOW_RESULT, raffleId, hash }
     },
     disconnectFromRaffle: () => {
         return { type: sseActionTypes.CONNECTION.CLOSE.REQUEST }
