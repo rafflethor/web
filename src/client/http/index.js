@@ -4,6 +4,7 @@ import storage from '../storage'
 import { fromJS } from 'immutable'
 
 import raffle from './raffle'
+import result from './result'
 import registration from './registration'
 
 /**
@@ -51,5 +52,6 @@ client.interceptors.request.use(ok, ko)
  */
 export default {
     registration: registration(client),
-    raffle: raffle(client)
+    raffle: raffle(client),
+    result: result(client)
 }

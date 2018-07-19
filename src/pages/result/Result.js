@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { actionCreators } from '../../reducers/result';
 
 import Welcome from '../../components/welcome/Welcome';
 import RaffleEmail from './raffleEmail/RaffleEmail';
@@ -8,24 +12,28 @@ import ResultStyles from './Result.css'
 
 /* Fetch examples */
 import fetchSingleWinnersResult from './resultSingleWinner.json'
-import fetchMultipleWinnersResult from './resultMultipleWinners.json'
+// import fetchMultipleWinnersResult from './resultMultipleWinners.json'
 
 class Result extends Component {
 
-  render() {
-    /* TODO Sustituir por el ID de la rifa que viene en los parameters */
-    const raffleId = 'A4KF';
+    componentDidMount () {
+        const raffleId = this.props.match.params.id
+        const userHash = this.props.match.params.hash
 
-    const raffleType = 'twitter'; /* email or twitter */
+        this.props.getRaffleResultRequest(raffleId, userHash)
+    }
 
-    /* CASE EMAIL */
-    const hash = 'ojiajuyfe9823ilo8nfew9'; /* if hash */
-    const status = 'lucky'; /* lucky or unlucky */
+    render() {
+        const raffleType = 'email'; /* email or twitter */
 
-    /* CASE TWITTER */
-    const luckyList = fetchSingleWinnersResult; /* JSON examples => fetchSingleWinnersResult or fetchMultipleWinnersResult */
+        /* CASE EMAIL */
+        const hash = this.props.match.params.hash
+        const status = this.props.didIWin ? 'lucky' : 'unlucky'; /* lucky or unlucky */
 
-    let raffle;
+        /* CASE TWITTER */
+        const luckyList = fetchSingleWinnersResult; /* JSON examples => fetchSingleWinnersResult or fetchMultipleWinnersResult */
+
+        let raffle;
 
     if (raffleType === 'email') {
       raffle = <RaffleEmail status={status} hash={hash} />;
@@ -36,8 +44,8 @@ class Result extends Component {
     return (
 
       <main className={ResultStyles.Main}>
-        <Welcome event="JSdayES 2019">
-        El martillo de Thor ha decidido que <br/> en la rifa {raffleId} de
+        <Welcome event={this.props.organizationName}>
+        El martillo de Thor ha decidido que <br/> en la rifa {this.props.raffleName} de
         </Welcome>
         { raffle }
         <a className={ResultStyles.Button} href="/">
@@ -48,4 +56,23 @@ class Result extends Component {
   }
 }
 
-export default Result;
+const mapDispatchToProps = (dispatch) => ({
+    ...bindActionCreators(actionCreators, dispatch)
+});
+
+const mapStateToProps = (state) => {
+    return {
+        raffleName: state.result.getIn(['result', 'raffle', 'name']),
+        didIWin: state.result.getIn(['result', 'didIWin']),
+        organizationName: state.result.getIn(['result', 'raffle', 'organization', 'name']),
+        result: state.result.getIn(['result']),
+    };
+};
+
+export default (
+    withRouter(
+        connect(mapStateToProps, mapDispatchToProps)(
+            Result
+        )
+    )
+);
