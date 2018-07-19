@@ -12,7 +12,22 @@
     margin-bottom: 0.75rem;
 }
 
-.Image {
+.ListItem > .Image {
     margin: 0 1rem;
     border-radius: 50%;
+}
+
+.Single {
+    color: var(--white);
+    flex: 1;
+    font-size: var(--large);
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.Single > .Image {
+    margin-top: 1rem;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
 }

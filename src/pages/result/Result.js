@@ -23,7 +23,7 @@ class Result extends Component {
     const status = 'lucky'; /* lucky or unlucky */
 
     /* CASE TWITTER */
-    const luckyList = fetchMultipleWinnersResult; /* JSON examples => fetchSingleWinnersResult or fetchMultipleWinnersResult */
+    const luckyList = fetchSingleWinnersResult; /* JSON examples => fetchSingleWinnersResult or fetchMultipleWinnersResult */
 
     let raffle;
 

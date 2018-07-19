@@ -22,23 +22,14 @@ class RaffleTwitter extends Component {
     );
 
     const singleLucky = this.props.luckyList.map((lucky, index) => 
-      <li
-        className={RaffleTwitterStyles.ListItem}
-        key={lucky.uuid}>
-        <div>{index + 1}</div>
+      <Fragment key={lucky.uuid}>
+        <div><strong>{lucky.twitter.handle}</strong></div>
+        <div>{lucky.name.first} {lucky.name.last}</div>
         <img
           className={RaffleTwitterStyles.Image}
-          src={lucky.picture.thumbnail}
+          src={lucky.picture.large}
           alt={`${lucky.name.first} ${lucky.name.last} profile`} />
-        <div className={RaffleTwitterStyles.UserData}>
-          <div>
-            <strong>{lucky.twitter.handle}</strong>
-          </div>
-          <div>
-            {lucky.name.first} {lucky.name.last}
-          </div>
-        </div>
-      </li>
+      </Fragment>
     );
 
     const luckyListLength = this.props.luckyList.length === 1 ? true : false;
@@ -46,7 +37,9 @@ class RaffleTwitter extends Component {
     return (
       <Fragment>
         {luckyListLength &&
-          {singleLucky}
+          <div className={RaffleTwitterStyles.Single}>
+            {singleLucky}
+          </div>
         }
         {!luckyListLength &&
           <ol className={RaffleTwitterStyles.OrderedList}>
