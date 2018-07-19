@@ -5,7 +5,7 @@
 }
 
 body {
-  background: url('./assets/background.jpg') no-repeat center center;
+  background: url('https://picsum.photos/1024/768/?gravity=east&blur&random') no-repeat center center;
   background-size: cover;
   font-family: 'Montserrat', sans-serif;
   margin: 0;

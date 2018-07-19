@@ -19,7 +19,7 @@ class Result extends Component {
     const raffleType = 'twitter'; /* email or twitter */
 
     /* CASE EMAIL */
-    const hash = 'ojiajuyfe9823ilo8nfew9j8wnhlafjlyafd978joqe'; /* if hash */
+    const hash = 'ojiajuyfe9823ilo8nfew9'; /* if hash */
     const status = 'lucky'; /* lucky or unlucky */
 
     /* CASE TWITTER */
