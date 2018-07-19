@@ -5,6 +5,7 @@ import Registry from './pages/registry/Registry';
 import Raffle from './pages/raffle/Raffle';
 import Result from './pages/result/Result';
 
+import logo from './assets/logo.svg';
 import AppStyles from './App.css';
 
 class App extends Component {
@@ -12,7 +13,7 @@ class App extends Component {
     return (
       <Fragment>
         <header className={AppStyles.Header}>
-          <h1 className={AppStyles.Logo}>RaffleThor</h1>
+          <img src={logo} alt="RaffleThor logo" />
         </header>
         <Switch>
             <Route exact path="/" component={Registry} />
