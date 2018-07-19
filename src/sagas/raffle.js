@@ -1,7 +1,8 @@
-import { put, take, fork } from 'redux-saga/effects'
+import { put, take, call, fork } from 'redux-saga/effects'
 import { actionCreators, actionTypes } from '../reducers/raffle'
 import { sseActionTypes } from '../client/sse'
 import { push } from 'react-router-redux'
+import http from '../client/http'
 
 function* handleMessages() {
     while (true) {
@@ -22,11 +23,29 @@ function* handleMessages() {
     }
 }
 
+function* watchGetRaffleDetails() {
+    while (true) {
+        try {
+            const { raffleId, hash } = yield take(actionTypes.RAFFLE.INFO.REQUEST)
+
+            if (raffleId && hash) {
+                const raffle = yield call(http.raffle.detail, raffleId)
+
+                yield put(actionCreators.getRaffleInfoSuccess(raffle))
+                yield put(actionCreators.connectToRaffle(raffleId, hash))
+            }
+        } catch (error) {
+            yield put(actionCreators.getRaffleInfoFailure(error))
+        }
+    }
+
+}
+
 function* watchShowResult() {
     while (true) {
         try {
             const { raffleId, hash } = yield take(actionTypes.RAFFLE.SHOW_RESULT)
-            console.log('===>', raffleId, '-', hash)
+
             if (raffleId && hash) {
                 yield put(push(`/result/${raffleId}/${hash}`))
             }
@@ -38,5 +57,6 @@ function* watchShowResult() {
 
 export default [
     fork(handleMessages),
-    fork(watchShowResult)
+    fork(watchShowResult),
+    fork(watchGetRaffleDetails)
 ]

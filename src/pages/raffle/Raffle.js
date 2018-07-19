@@ -38,7 +38,7 @@ class Raffle extends Component {
         const raffleId = this.getRaffleId();
         const userHash = this.getUserHash();
 
-        this.props.connectToRaffle(raffleId, userHash);
+        this.props.getRaffleInfoRequest(raffleId, userHash);
     }
 
     componentDidUmount () {
@@ -59,7 +59,7 @@ class Raffle extends Component {
         return (
             <main>
                 <Welcome event={this.props.eventName}>
-                    Comienza la cuenta atrás <br/> de la rifa {this.props.raffleName} de
+                    Comienza la cuenta atrás <br/> de la rifa {this.props.raffleName} de {this.props.organizationName}
                 </Welcome>
                 <Hammer countDown={this.props.countdown}></Hammer>
             </main>
@@ -73,10 +73,9 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = (state) => {
     return {
-        eventName: state.raffle.get('eventName'),
-        raffleName: state.raffle.get('raffleName'),
+        raffleName: state.raffle.getIn(['raffle', 'name']),
+        organizationName: state.raffle.getIn(['raffle', 'organization', 'name']),
         countdown: state.raffle.get('countdown'),
-        result: state.raffle.get('result'),
         finished: state.raffle.get('finished')
     };
 };

@@ -31,7 +31,7 @@ class RaffleForm extends Component {
         ) : ('')
 
         const invalidRaffleId = this.props.invalidId ? (
-            <span className="form-error">Invalid Raffle ID</span>
+            <span className={raffleFormStyles.Label}>Invalid Raffle ID</span>
         ) : ('')
 
         return (
