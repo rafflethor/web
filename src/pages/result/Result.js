@@ -31,18 +31,19 @@ class Result extends Component {
         const status = this.props.didIWin ? 'lucky' : 'unlucky'; /* lucky or unlucky */
 
         /* CASE TWITTER */
-        const luckyList = fetchSingleWinnersResult; /* JSON examples => fetchSingleWinnersResult or fetchMultipleWinnersResult */
+        const luckyList = fetchSingleWinnersResult;
 
         let raffle;
 
-    if (raffleType === 'email') {
-      raffle = <RaffleEmail status={status} hash={hash} />;
-    } else {
-      raffle = <RaffleTwitter luckyList={luckyList} />;
-    }
+        if (hash) {
+            if (raffleType === 'email') {
+                raffle = <RaffleEmail status={status} hash={hash} />;
+            } else {
+                raffle = <RaffleTwitter luckyList={luckyList} />;
+            }
+        }
 
     return (
-
       <main className={ResultStyles.Main}>
         <Welcome event={this.props.organizationName}>
         El martillo de Thor ha decidido que <br/> en la rifa {this.props.raffleName} de
