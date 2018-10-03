@@ -78,7 +78,8 @@ export const actionCreators = {
         return { type: actionTypes.RAFFLE.SHOW_RESULT, raffleId, hash }
     },
     connectToRaffle: (raffleId, hash) => {
-        const url = `http://localhost:5050/raffle/${raffleId}/${hash}`
+        const url = `${process.env.REACT_APP_API_URL_BASE}/raffles/${raffleId}/${hash}`
+
         return { type: sseActionTypes.CONNECTION.OPEN.REQUEST, url }
     },
     disconnectFromRaffle: () => {

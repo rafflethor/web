@@ -1,0 +1,28 @@
+language: node_js
+
+sudo: required
+dist: trusty
+
+services:
+  - docker
+
+install:
+  - sudo apt-get --yes install snapd
+  - sudo snap install kubectl --classic
+  - sudo ln -s /snap/bin/kubectl /usr/local/bin/kubectl
+
+branches:
+  only:
+    - master
+
+cache:
+  yarn: true
+
+script:
+  - ./ci.sh build
+
+deploy:
+  provider: script
+  script: ./ci.sh deploy
+  on:
+    branch: master

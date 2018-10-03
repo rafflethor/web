@@ -19,7 +19,7 @@ export const client = axios.create({
         'Content-Type': 'application/json',
         'Accept': 'application/json'
     },
-    baseURL: 'http://localhost:5050/graphql',
+    baseURL: `${process.env.REACT_APP_API_URL_BASE}/graphql`,
     transformResponse: [ (data) => {
         return fromJS(JSON.parse(data))
     }]
