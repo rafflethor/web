@@ -62,7 +62,7 @@ case $1 in
         # deploy it for the first time
         set_credentials
 
-        kubectl apply -f ci/deployment.yml -n $K8S_CONTEXT_NAME
+        kubectl apply -f k8s/deployment.yml -n $K8S_CONTEXT_NAME
 
         trap cleanup EXIT
         ;;
