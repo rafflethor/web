@@ -8,13 +8,13 @@ function* handleMessages() {
     while (true) {
         try {
             const { event } = yield take(sseActionTypes.ON_MESSAGE)
-            const { type, data } = JSON.parse(event.data)
+            const data = JSON.parse(event.data)
 
-            if (type === 'countdown') {
-                yield put(actionCreators.showCountdown(data))
-            } else if (type === 'info') {
+            if (data.type === 'countdown') {
+                yield put(actionCreators.showCountdown(data.countdown))
+            } else if (data.type === 'info') {
                 yield put(actionCreators.showInfo(data))
-            } else if (type === 'winner') {
+            } else if (data.type === 'winners') {
                 yield put(actionCreators.showFinished())
             }
         } catch (e) {

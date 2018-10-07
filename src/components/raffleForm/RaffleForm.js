@@ -13,7 +13,7 @@ const Input = ({ error, ...props }) => (
 );
 
 const VALIDATION_RULES = {
-    raffleId: 'required|min:4|max:4'
+    raffleId: 'required|min:4'
 }
 
 class RaffleForm extends Component {
@@ -37,11 +37,11 @@ class RaffleForm extends Component {
         return (
             <Form rules={VALIDATION_RULES}>
                 <div className={raffleFormStyles.Form}>
-                <label htmlFor="raffleId" className={raffleFormStyles.Label}>ID de la rifa</label>
+                <label htmlFor="raffleId" className={raffleFormStyles.Label}>Codigo de la rifa</label>
                 <Input id="raffleId"
                        name="raffleId"
                        type="text"
-                       placeholder="ID de la rifa" required />
+                       placeholder="Codigo de la rifa" required />
 
                 {/* If invalid raffle id */}
                 { invalidRaffleId }

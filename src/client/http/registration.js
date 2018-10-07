@@ -1,19 +1,19 @@
 export default (client) => ({
-    register (spot, email) {
+    register (code, social) {
         const query = `
-          mutation Register($spot: String!, $email: String) {
-            eventRegistry(spotId: $spot, email: $email) {
+          mutation Register($code: String!, $social: String) {
+            eventRegistry(code: $code, social: $social) {
               hash
               raffleId
-              email
+              social
             }
           }
         `
         const data = {
             query,
             variables: {
-                spot: spot,
-                email: email
+                code: code,
+                social: social
             }
         }
 

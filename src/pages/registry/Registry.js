@@ -7,8 +7,8 @@ class Registry extends Component {
     render() {
         return (
             <main>
-                <Welcome event="7° Aniversario Kaleidos">
-                    Bienvenido a
+                <Welcome event="Codigo de Participacion">
+                    Por favor introduce el
                 </Welcome>
                 <RaffleForm />
             </main>
