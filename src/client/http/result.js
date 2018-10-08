@@ -5,8 +5,9 @@ export default (client) => ({
               checkRaffleResult(id: $id, hash: $hash) {
                   didIWin
                   winners {
-                      email
-                      hash
+                      social
+                      ordering
+                      id
                   }
                   raffle {
                       id
